@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="height: auto; width: auto; align-items: center;">
+        <ui:RadioButtonGroup label="Difficulty" value="-1" name="DifficultySelector" style="flex-direction: column; align-items: flex-end; height: 84px; width: 350px; visibility: visible;" />
+        <ui:Button text="Play" display-tooltip-when-elided="true" name="PlayButton" class="button-regular" style="width: 369px; align-items: auto; left: auto; right: auto; height: 102px;" />
+    </ui:VisualElement>
+    <ui:VisualElement style="height: 662px;">
+        <ui:Label text="Movement: WASD&#10;Armory: Space\CapsLock" display-tooltip-when-elided="true" name="Controls" style="font-size: 30px;" />
+    </ui:VisualElement>
+</ui:UXML>
