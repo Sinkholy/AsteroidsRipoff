@@ -41,7 +41,7 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""d14ca498-8edc-459a-9234-2e4883908a83"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": ""Scale(factor=10)"",
+                    ""processors"": ""Invert"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 }
@@ -52,7 +52,7 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
                     ""id"": ""abd3c388-52fe-4380-8617-a326f1b6e5c0"",
                     ""path"": ""<Gamepad>/leftStick/x"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=80)"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
@@ -63,7 +63,7 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
                     ""id"": ""f4c1f958-05b5-4dec-a44b-9d21351a387a"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": ""Invert"",
+                    ""processors"": ""Scale(factor=10)"",
                     ""groups"": """",
                     ""action"": ""Rotate"",
                     ""isComposite"": true,
