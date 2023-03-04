@@ -1,9 +1,23 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="PosAndMovContainer" style="width: 20%; height: 100%; flex-basis: 10%; flex-grow: 1; margin-left: 10px; margin-top: 10px; -unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=e211c59da07802e42b8549631d74746b&amp;type=3#NotInter-Regular&apos;); justify-content: flex-start; align-items: flex-start; left: auto; flex-direction: column;">
-        <ui:Label text="Label" display-tooltip-when-elided="true" name="Velocity" style="width: 100%; height: 5%;" />
-        <ui:Label text="Label" display-tooltip-when-elided="true" name="Coordinates" style="width: 100%; height: 5%;" />
-        <ui:Label text="Label" display-tooltip-when-elided="true" name="Rotation" style="width: 100%; height: 5%;" />
-        <ui:Label text="Label" display-tooltip-when-elided="true" name="LaserCharges" style="width: 100%; height: 5%;" />
-        <ui:Label text="Label" display-tooltip-when-elided="true" name="LaserCooldown" style="width: 100%; height: 5%;" />
+    <ui:VisualElement name="Container" style="width: 25%; height: 25%; background-color: rgba(255, 255, 255, 0.4); flex-grow: 0; flex-shrink: 1; margin-left: 10px; margin-top: 10px;">
+        <ui:ProgressBar value="22" title="Velocity" name="VelocityBar" style="width: 80%;" />
+        <ui:ProgressBar value="1" name="AccelerationBar" high-value="1" title="Acceleration" style="width: 80%; height: auto; margin-top: 3px;" />
+        <ui:VisualElement name="RotationVE" style="flex-direction: row;">
+            <ui:Label text="Rotation:" display-tooltip-when-elided="true" />
+            <ui:Label text="-" display-tooltip-when-elided="true" name="RotationText" />
+        </ui:VisualElement>
+        <ui:VisualElement name="CoordinatesVE" style="flex-direction: row;">
+            <ui:Label text="Coordinates:" display-tooltip-when-elided="true" />
+            <ui:Label text="-" display-tooltip-when-elided="true" name="CoordinatesText" />
+        </ui:VisualElement>
+        <ui:VisualElement name="LaserVE" style="flex-direction: row;">
+            <ui:Label text="Laser:" display-tooltip-when-elided="true" />
+            <ui:VisualElement>
+                <ui:VisualElement style="flex-direction: row;">
+                    <ui:ProgressBar value="22" title="Cooldown" name="LaserCooldownBar" style="width: 140px;" />
+                    <ui:Label text="-" display-tooltip-when-elided="true" name="LaserChargesText" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
