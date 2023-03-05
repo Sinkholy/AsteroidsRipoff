@@ -32,6 +32,8 @@ public class IngameUIScript : MonoBehaviour
 
     ProgressBar velocityBar;
 
+    Label livesLeftText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,8 @@ public class IngameUIScript : MonoBehaviour
         accelerationBar = root.Q<ProgressBar>("AccelerationBar");
 
         velocityBar = root.Q<ProgressBar>("VelocityBar");
+
+        livesLeftText = root.Q<Label>("LivesCountText");
 	}
 
     // Update is called once per frame
@@ -60,6 +64,7 @@ public class IngameUIScript : MonoBehaviour
         UpdateLaserUI();
         rotationText.text = Math.Round(player.RotationAngle).ToString();
         coordinatesText.text = player.WorldCoordinates.ToString();
+        livesLeftText.text = player.HP.ToString();
 
         void UpdateVelocityUI()
         {

@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="Container" style="width: 25%; height: 25%; background-color: rgba(255, 255, 255, 0.4); flex-grow: 0; flex-shrink: 1; margin-left: 10px; margin-top: 10px;">
+    <ui:VisualElement name="Container" focusable="false" style="width: 25%; height: 35%; background-color: rgba(255, 255, 255, 0.4); flex-grow: 0; flex-shrink: 1; margin-left: 10px; margin-top: 10px;">
         <ui:ProgressBar value="22" title="Velocity" name="VelocityBar" style="width: 80%;" />
         <ui:ProgressBar value="1" name="AccelerationBar" high-value="1" title="Acceleration" style="width: 80%; height: auto; margin-top: 3px;" />
         <ui:VisualElement name="RotationVE" style="flex-direction: row;">
@@ -12,12 +12,14 @@
         </ui:VisualElement>
         <ui:VisualElement name="LaserVE" style="flex-direction: row;">
             <ui:Label text="Laser:" display-tooltip-when-elided="true" />
-            <ui:VisualElement>
-                <ui:VisualElement style="flex-direction: row;">
-                    <ui:ProgressBar value="22" title="Cooldown" name="LaserCooldownBar" style="width: 140px;" />
-                    <ui:Label text="-" display-tooltip-when-elided="true" name="LaserChargesText" />
-                </ui:VisualElement>
+            <ui:VisualElement style="flex-direction: row; width: auto;">
+                <ui:ProgressBar value="22" title="Cooldown" name="LaserCooldownBar" style="width: 150px;" />
+                <ui:Label text="-" display-tooltip-when-elided="true" name="LaserChargesText" />
             </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="LivesVe" style="flex-direction: row;">
+            <ui:Label text="Lives left:" display-tooltip-when-elided="true" />
+            <ui:Label display-tooltip-when-elided="true" name="LivesCountText" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
