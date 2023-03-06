@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 2039458638494373299}
   - component: {fileID: 2659063975412699285}
   - component: {fileID: 39956446790587777}
-  - component: {fileID: 6093330186042754536}
-  - component: {fileID: -6274415052504819909}
   - component: {fileID: 550532356102850267}
   - component: {fileID: 3368125590903994708}
   - component: {fileID: 8616837117634211267}
@@ -107,32 +105,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &6093330186042754536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7550254413019894626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c91ad886309bdb4580729067a2417f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-6274415052504819909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7550254413019894626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9df7f08771b99394daa75ddb186462df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  DamageType: 2
 --- !u!114 &550532356102850267
 MonoBehaviour:
   m_ObjectHideFlags: 0

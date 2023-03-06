@@ -1,6 +1,5 @@
 using System;
 
-using Assets.Scripts.Damage;
 using Assets.Scripts.Movement.Behaviour;
 
 using UnityEngine;
