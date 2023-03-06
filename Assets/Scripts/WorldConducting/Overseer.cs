@@ -9,6 +9,11 @@ namespace Assets.Scripts.WorldConducting
 {
 	public class Overseer : MonoBehaviour
 	{
+		#region Play session data
+		internal static int LastSessionPlayerScore;
+		// Поле необходимое для передачи данных в следующую сцену.
+		#endregion
+
 		[SerializeField]
 		Player player;
 		[SerializeField]
@@ -43,6 +48,11 @@ namespace Assets.Scripts.WorldConducting
 					playerSpawnRequested = false;
 				}
 			}
+		}
+
+		void OnDestroy()
+		{
+			LastSessionPlayerScore = player.Score;
 		}
 
 		void OnPlayerDecreasedHP()
