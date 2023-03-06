@@ -1,9 +1,29 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement style="height: auto; width: auto; align-items: center;">
-        <ui:RadioButtonGroup label="Difficulty" value="-1" name="DifficultySelector" style="flex-direction: column; align-items: flex-end; height: 84px; width: 350px; visibility: visible;" />
-        <ui:Button text="Play" display-tooltip-when-elided="true" name="PlayButton" class="button-regular" style="width: 369px; align-items: auto; left: auto; right: auto; height: 102px;" />
+    <ui:VisualElement>
+        <ui:Button text="Play" display-tooltip-when-elided="true" name="PlayButton" class="button-regular" style="width: 20%; align-items: auto; left: auto; right: auto; height: 20%;" />
+        <ui:VisualElement name="Controls" style="height: 100%; width: 40%;">
+            <ui:VisualElement name="Movement" style="flex-direction: row;">
+                <ui:Label text="Movement" display-tooltip-when-elided="true" />
+                <ui:Label text="-" display-tooltip-when-elided="true" name="MovementControlsText" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Armory" style="flex-direction: row;">
+                <ui:Label text="Armory" display-tooltip-when-elided="true" />
+                <ui:Label text="-" display-tooltip-when-elided="true" name="ArmoryControlsText" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Abilities" style="flex-direction: row;">
+                <ui:Label text="Abilities" display-tooltip-when-elided="true" />
+                <ui:Label text="-" display-tooltip-when-elided="true" name="AbilitiesControlsText" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement style="height: 662px;">
-        <ui:Label text="Movement: WASD&#10;Armory: Space\CapsLock" display-tooltip-when-elided="true" name="Controls" style="font-size: 30px;" />
+    <ui:VisualElement>
+        <ui:Foldout text="Controls" name="Controls">
+            <ui:Foldout text="Gamepad" name="Gamepad">
+                <ui:Foldout text="Armory" name="Armory" />
+                <ui:Foldout text="Abilities" name="Abilities" />
+                <ui:Foldout text="Movement" name="Movement" />
+            </ui:Foldout>
+            <ui:Foldout text="Keyboard" name="Keyboard" />
+        </ui:Foldout>
     </ui:VisualElement>
 </ui:UXML>

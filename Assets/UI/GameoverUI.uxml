@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="left: 0; top: 20%; align-items: center; margin-left: 0;">
+        <ui:Label text="Гамовер" display-tooltip-when-elided="true" style="font-size: 26px;" />
+        <ui:Button text="Try again" display-tooltip-when-elided="true" name="RestartButton" style="top: 30px; width: 120px; height: 60px;" />
+    </ui:VisualElement>
+</ui:UXML>
