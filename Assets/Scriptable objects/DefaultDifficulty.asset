@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195680b4e5980aa4fbbb74d9be63e3a7, type: 3}
   m_Name: DefaultDifficulty
   m_EditorClassIdentifier: 
-  maxAliveAsteroids: 1
+  maxAliveAsteroids: 4
   maxAliveSaurces: 1
   safetySpawnDistance: 3
   minDebriesPerAsteroid: 2
-  maxDebriesPerAsteroid: 5
-  minSaurceSpawnCooldown: 2
-  maxSaurceSpawnCooldown: 2
-  asteroidPrefab: {fileID: 5253471962937178297, guid: 6a4371ce9a9539449ba68e7e68cb104e, type: 3}
-  saurcePrefab: {fileID: 7550254413019894626, guid: 81bddd5a9bb9c7f45bb9e4e988455628, type: 3}
-  debriesPrefab: {fileID: 5253471962937178297, guid: d88ea1343c0343541bfb71127af28b0e, type: 3}
+  maxDebriesPerAsteroid: 3
+  minSaurceSpawnCooldown: 5
+  maxSaurceSpawnCooldown: 10

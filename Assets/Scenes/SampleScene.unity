@@ -378,9 +378,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42dadbcd18fabc4fa61dcce9cc11123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCharges: 5
-  chargeCooldown: 5
-  chargeDuration: 3
+  maxCharges: 2
+  chargeCooldown: 3
+  chargeDuration: 1.5
 --- !u!120 &842504217
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a1e3088b0d586448fa28a525dd127d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 1
+  maxHp: 3
 --- !u!61 &1868267820
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -749,7 +749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 6617382546001114728, guid: a46149d17a97d7c4f9bc5de59be4578a, type: 3}
-  projectileSpeed: 7
+  projectileSpeed: 8.5
 --- !u!114 &1868267827
 MonoBehaviour:
   m_ObjectHideFlags: 0
