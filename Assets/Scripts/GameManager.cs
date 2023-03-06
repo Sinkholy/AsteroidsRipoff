@@ -4,21 +4,21 @@ namespace Assets.Scripts
 {
 	internal static class GameManager
 	{
-		static Scene InitialScene => SceneManager.GetSceneByBuildIndex(0);
-		static Scene GameScene => SceneManager.GetSceneByBuildIndex(1);
-		static Scene GameoverScene => SceneManager.GetSceneByBuildIndex(2);
+		static string InitialScenePath => SceneUtility.GetScenePathByBuildIndex(0);
+		static string GameScenePath => SceneUtility.GetScenePathByBuildIndex(1);
+		static string GameoverScenePath => SceneUtility.GetScenePathByBuildIndex(2);
 
 		public static void LoadInitialScreen()
 		{
-			SceneManager.LoadScene(InitialScene.name, LoadSceneMode.Single);
+			SceneManager.LoadScene(InitialScenePath, LoadSceneMode.Single);
 		}
 		public static void LoadGame()
 		{
-			SceneManager.LoadScene(GameScene.name, LoadSceneMode.Single);
+			SceneManager.LoadScene(GameScenePath, LoadSceneMode.Single);
 		}
 		public static void LoadGameoverScreen()
 		{
-			SceneManager.LoadScene(GameoverScene.name, LoadSceneMode.Single);
+			SceneManager.LoadScene(GameoverScenePath, LoadSceneMode.Single);
 		}
 	}
 }
