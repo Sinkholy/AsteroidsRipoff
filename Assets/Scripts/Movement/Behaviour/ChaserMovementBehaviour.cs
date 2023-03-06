@@ -16,11 +16,12 @@ namespace Assets.Scripts.Movement.Behaviour
 		}
 		void Start()
 		{
-			movementController.SetVelocity(Speed);
+			
 		}
 		void FixedUpdate()
 		{
-			movementController.MoveTowards(Target.transform.position);
+			movementController.SetVelocity(Speed);
+			movementController.MoveTowards(Target.transform.position);			
 		}
 		#endregion
 	}
