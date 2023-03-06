@@ -18,13 +18,6 @@ public class DifficultyConfig : ScriptableObject
 	[SerializeField]
 	float maxSaurceSpawnCooldown;
 
-	[SerializeField]
-	GameObject asteroidPrefab;
-	[SerializeField]
-	GameObject saurcePrefab;
-	[SerializeField]
-	GameObject debriesPrefab;
-
 	internal int MaxAliveAsteroids => maxAliveAsteroids;
 	internal int MaxAliveSaurces => maxAliveSaurces;
 	internal float SafetySpawnDistance => safetySpawnDistance;
@@ -32,7 +25,4 @@ public class DifficultyConfig : ScriptableObject
 	internal int MaxDebriesPerAsteroid => maxDebriesPerAsteroid;
 	internal float MinSaurceSpawnCooldown => minSaurceSpawnCooldown;
 	internal float MaxSaurceSpawnCooldown => maxSaurceSpawnCooldown;
-	internal GameObject AsteroidPrefab => asteroidPrefab;
-	internal GameObject SaurcePrefab => saurcePrefab;
-	internal GameObject DebriesPrefab => debriesPrefab;
 }
