@@ -26,7 +26,8 @@ namespace Assets.Scripts.Entities
 		ChaserMovementBehaviour chaserMovement;
 		Health health;
 
-		public int ScoreReward { get; }
+		[field: SerializeField]
+		public int ScoreReward { get; private set; }
 		public bool IsDestroyed { get; }
 
 		public event Action<DestroyingEventArgs> Destroyed = delegate { };
