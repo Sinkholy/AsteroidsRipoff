@@ -12,8 +12,8 @@ namespace Assets.Scripts.WorldConducting
 		// Start is called before the first frame update
 		void Awake()
 		{
-			WorldBoundX = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0)).x;
-			WorldBoundY = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0)).y;
+			WorldBoundX = Camera.main.ViewportToWorldPoint(new Vector2(1, 1)).x;
+			WorldBoundY = Camera.main.ViewportToWorldPoint(new Vector2(1, 1)).y;
 		}
 
 		public static Vector2 PickRandomCoordinatesWithinWorld()
