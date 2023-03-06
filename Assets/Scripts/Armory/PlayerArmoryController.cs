@@ -49,10 +49,18 @@ namespace Assets.Scripts.Armory
 				actions = new DefaultActions();
 				actions.Armory.SetCallbacks(this);
 			}
-			actions.Armory.Enable();
 
 			lasergun.HitOccured += (e) => HitOccured(e);
 			projecileLauncher.HitOccured += (e) => HitOccured(e);
+		}
+
+		private void OnEnable()
+		{
+			actions.Armory.Enable();
+		}
+		private void OnDisable()
+		{
+			actions.Armory.Disable();
 		}
 	}
 }

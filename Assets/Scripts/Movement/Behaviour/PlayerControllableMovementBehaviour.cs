@@ -34,6 +34,14 @@ namespace Assets.Scripts.Movement.Behaviour
 			var targetAcceleration = accelerationFactor * input.AccelerationInput;
 			movementController.Accelerate(targetAcceleration, ForceMode2D.Force, maxSpeed);
 		}
+		private void OnEnable()
+		{
+			input.Enable();
+		}
+		private void OnDisable()
+		{
+			input.Disable();
+		}
 		#endregion
 
 		class MovementInputReader : IMovementActions
@@ -47,9 +55,16 @@ namespace Assets.Scripts.Movement.Behaviour
 			{
 				actions = new DefaultActions();
 				actions.Movement.SetCallbacks(this);
-				actions.Movement.Enable();
 			}
 
+			internal void Enable()
+			{
+				actions.Enable();
+			}
+			internal void Disable()
+			{
+				actions.Disable();
+			}
 			public void OnAccelerate(InputAction.CallbackContext context)
 			{
 				AccelerationInput = context.action.ReadValue<float>();
