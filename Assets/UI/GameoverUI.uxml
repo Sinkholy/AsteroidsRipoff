@@ -6,5 +6,6 @@
             <ui:Label text="Score: " display-tooltip-when-elided="true" style="font-size: 20px;" />
             <ui:Label text="0" display-tooltip-when-elided="true" name="ScoreText" style="font-size: 20px;" />
         </ui:VisualElement>
+        <ui:Button text="Exit" display-tooltip-when-elided="true" name="ExitButton" style="margin-top: 3px;" />
     </ui:VisualElement>
 </ui:UXML>
