@@ -17,8 +17,6 @@ namespace Assets.Scripts.WorldConducting
 		[SerializeField]
 		Player player;
 		[SerializeField]
-		string gameoverSceneName;
-		[SerializeField]
 		float playerSpawnCooldown;
 		float currentSpawnCooldown;
 		bool playerSpawnRequested;
@@ -59,7 +57,7 @@ namespace Assets.Scripts.WorldConducting
 		{
 			if(player.HP <= 0)
 			{
-				SceneManager.LoadScene(gameoverSceneName, LoadSceneMode.Single);
+				GameManager.LoadGameoverScreen();
 			}
 			else
 			{

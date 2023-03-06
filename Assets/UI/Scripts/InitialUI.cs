@@ -1,5 +1,6 @@
+using Assets.Scripts;
+
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace Assets.UI.Scripts
@@ -7,9 +8,6 @@ namespace Assets.UI.Scripts
 	[RequireComponent(typeof(UIDocument))]
 	public class InitialUI : MonoBehaviour
 	{
-		[SerializeField]
-		string activeGameSceneName;
-
 		UIDocument uiDoc;
 
 		void Awake()
@@ -20,7 +18,7 @@ namespace Assets.UI.Scripts
 		{
 			uiDoc.rootVisualElement.Q<Button>("PlayButton").clicked += () =>
 			{
-				SceneManager.LoadScene(activeGameSceneName);
+				GameManager.LoadGame();
 			};
 
 			SetControlsScheme();
