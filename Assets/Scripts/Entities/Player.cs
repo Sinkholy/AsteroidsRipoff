@@ -23,7 +23,6 @@ namespace Assets.Scripts.Entities
 		Score score;
 
 		internal event Action HealthDecreased = delegate { };
-		internal event Action PlayerDied = delegate { };
 
 		#region Facade
 		internal int HP => health.HP;
@@ -47,21 +46,17 @@ namespace Assets.Scripts.Entities
 		void Start()
 		{
 			armoryController.HitOccured += OnArmoryHitOccured;
-			health.RanOutOfHP += OnRanOutOfHP;
 		}
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
 			if(collision.TryGetComponent<IEnemy>(out _))
 			{
 				health.DecreaseHP(1);
+				HealthDecreased();
 			}
 		}
 		#endregion
 
-		void OnRanOutOfHP()
-		{
-			gameObject.SetActive(false);
-		}
 		void OnArmoryHitOccured(IEnemy enemy)
 		{
 			score += enemy.ScoreReward;
