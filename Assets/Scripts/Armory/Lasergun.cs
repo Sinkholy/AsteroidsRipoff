@@ -55,6 +55,8 @@ namespace Assets.Scripts.Armory
 				GenerateCollider();
 			}
 
+			currentCooldown = chargeCooldown;
+
 			void GenerateCollider()
 			{
 				_collider = gameObject.AddComponent<EdgeCollider2D>();
