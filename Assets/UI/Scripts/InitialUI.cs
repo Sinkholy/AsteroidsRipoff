@@ -20,28 +20,6 @@ namespace Assets.UI.Scripts
 			{
 				GameManager.LoadGame();
 			};
-
-			SetControlsScheme();
-		}
-
-		void SetControlsScheme()
-		{
-			var actions = new DefaultActions();
-
-			uiDoc.rootVisualElement.Q<Label>("MovementControlsText").text = GetMovementText();
-			var gamepadControlsFoldout = uiDoc.rootVisualElement.Q<Foldout>("Gamepad");
-
-			string GetMovementText()
-			{
-				string movementControls = string.Empty;
-
-				foreach (var movementControl in actions.Movement.Accelerate.controls)
-				{
-					movementControls += movementControl.displayName + " / ";
-				}
-
-				return movementControls;
-			}
 		}
 	}
 }
