@@ -33,7 +33,9 @@ namespace Assets.Scripts.Armory
 
 		internal bool ReadyToFire => state != LaserState.Firing && charges > 0;
 		internal int Charges => charges;
-		internal float Cooldown => currentCooldown;
+		internal int MaxChargesCount => maxCharges;
+		internal float CurrentChargeCooldown => currentCooldown;
+		internal float ChargeCooldown => chargeCooldown;
 
 		internal void Fire()
 		{

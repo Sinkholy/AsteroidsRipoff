@@ -82,7 +82,6 @@ public class IngameUIScript : MonoBehaviour
 		}
         void UpdateLaserUI()
         {
-
 			laserCooldownBar.value = GetLaserCooldown();
 			laserChargerText.text = GetLaserChargesFormated();
 			laserCooldownBar.title = $"Charge: {GetLaserCooldown()}%";
@@ -90,14 +89,13 @@ public class IngameUIScript : MonoBehaviour
 
 			string GetLaserChargesFormated()
 			{
-				return $"{player.LaserCharges}/{5}";
+				return $"{player.LaserCharges}/{player.LaserMaxCharges}";
 			}
 			float GetLaserCooldown()
 			{
-				const float ChargeCooldown = 5;
-				float percent = 100 / ChargeCooldown;
+				float percent = 100 / player.LaserChargeCooldown;
 
-				return Mathf.Round((ChargeCooldown - player.LaserChargeCooldown) * percent);
+				return Mathf.Round((player.LaserChargeCooldown - player.LaserCurrentChargeCooldown) * percent);
 			}
 		}
     }
@@ -123,8 +121,6 @@ public class IngameUIScript : MonoBehaviour
 			AccelerationInput = context.action.ReadValue<float>();
 		}
 
-        public void OnRotate(InputAction.CallbackContext context)
-        {
-        }
+        public void OnRotate(InputAction.CallbackContext context) { }
     }
 }

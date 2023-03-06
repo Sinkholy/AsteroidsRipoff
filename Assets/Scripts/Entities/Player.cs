@@ -30,8 +30,11 @@ namespace Assets.Scripts.Entities
 		internal float Velocity => rigidbody.velocity.magnitude;
 		internal Vector2 WorldCoordinates => transform.position;
 		internal float RotationAngle => Mathf.DeltaAngle(0.0f, rigidbody.rotation);
+
 		internal int LaserCharges => armoryController.Lasergun.Charges;
-		internal float LaserChargeCooldown => armoryController.Lasergun.Cooldown;
+		internal int LaserMaxCharges => armoryController.Lasergun.MaxChargesCount;
+		internal float LaserChargeCooldown => armoryController.Lasergun.ChargeCooldown;
+		internal float LaserCurrentChargeCooldown => armoryController.Lasergun.CurrentChargeCooldown;
 		#endregion
 
 		#region Unity callbacks
