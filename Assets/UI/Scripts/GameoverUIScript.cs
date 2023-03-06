@@ -14,15 +14,15 @@ namespace Assets.UI.Scripts
 		// Start is called before the first frame update
 		void Start()
 		{
-			uiDoc = GetComponent<UIDocument>();
-		}
-
-		void Awake()
-		{
 			uiDoc.rootVisualElement.Q<Button>("RestartButton").clicked += () =>
 			{
 				SceneManager.LoadScene(activeGameSceneName, LoadSceneMode.Single);
 			};
+		}
+
+		void Awake()
+		{
+			uiDoc = GetComponent<UIDocument>();
 		}
 	}
 }
