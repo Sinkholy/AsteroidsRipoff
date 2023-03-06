@@ -20,6 +20,8 @@ namespace Assets.Scripts.Movement.Behaviour
 		MovementInputReader input;
 		DynamicBodyMovementController movementController;
 
+		internal float MaxVelocity => maxSpeed;
+
 		#region Unity callbacks
 		void Awake()
 		{
