@@ -24,6 +24,11 @@ namespace Assets.UI.Scripts
 				Quit();
 			};
 
+			uiDoc.rootVisualElement.Q<Button>("MainMenuButton").clicked += () =>
+			{
+				GameManager.LoadInitialScreen();
+			};
+
 			uiDoc.rootVisualElement.Q<Label>("ScoreText").text = Overseer.LastSessionPlayerScore.ToString();
 		}
 

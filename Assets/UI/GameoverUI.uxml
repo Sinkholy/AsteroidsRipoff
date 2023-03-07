@@ -1,7 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement style="left: auto; top: auto; align-items: center; margin-left: 0; height: auto; flex-direction: column;">
         <ui:Label text="Game over" display-tooltip-when-elided="true" style="font-size: 26px;" />
-        <ui:Button text="Retry" display-tooltip-when-elided="true" name="RestartButton" style="width: 120px; height: 50px;" />
+        <ui:VisualElement style="flex-direction: row;">
+            <ui:Button text="Retry" display-tooltip-when-elided="true" name="RestartButton" style="width: 120px; height: 50px;" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="MainMenuButton" />
+        </ui:VisualElement>
         <ui:VisualElement name="ScoreVE" style="flex-direction: row;">
             <ui:Label text="Score: " display-tooltip-when-elided="true" style="font-size: 20px;" />
             <ui:Label text="0" display-tooltip-when-elided="true" name="ScoreText" style="font-size: 20px;" />
