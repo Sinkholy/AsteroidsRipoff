@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 195680b4e5980aa4fbbb74d9be63e3a7, type: 3}
+  m_Name: Easy
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Easy
+  <SpawnerConfiguration>k__BackingField:
+    <SafetySpawnDistance>k__BackingField: 4
+    <MaxAliveAsteroids>k__BackingField: 3
+    <MinDebriesPerAsteroid>k__BackingField: 1
+    <MaxDebriesPerAsteroid>k__BackingField: 3
+    <MaxAliveSaurces>k__BackingField: 1
+    <MinSaurceSpawnCooldown>k__BackingField: 8
+    <MaxSaurceSpawnCooldown>k__BackingField: 20
+  <PlayerConfiguration>k__BackingField:
+    <MaxHp>k__BackingField: 5
+    <RespawnCooldown>k__BackingField: 3
+  <PlayerArmoryConfiguration>k__BackingField:
+    <ProjectileVelocity>k__BackingField: 9
+    <LaserMaxCharges>k__BackingField: 3
+    <ChargeCooldown>k__BackingField: 3
+    <ChargeDuration>k__BackingField: 1.6
+  <PlayerMovementConfiguration>k__BackingField:
+    <MaxVelocity>k__BackingField: 8
+    <AccelerationFactor>k__BackingField: 10
+    <RotationFactor>k__BackingField: 3.5
+  <Rewards>k__BackingField:
+    <AsteroidReward>k__BackingField: 7
+    <DebriesReward>k__BackingField: 3
+    <SaurcerReward>k__BackingField: 15
+  <AsteroidConfiguration>k__BackingField:
+    <MaxHp>k__BackingField: 1
+    <MinSpeed>k__BackingField: 2
+    <MaxSpeed>k__BackingField: 3
+    <MinDirection>k__BackingField: 0
+    <MaxDirection>k__BackingField: 360
+  <SaurcerConfiguration>k__BackingField:
+    <MaxHp>k__BackingField: 1
+    <MinSpeed>k__BackingField: 1
+    <MaxSpeed>k__BackingField: 3
