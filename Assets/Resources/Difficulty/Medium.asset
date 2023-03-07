@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195680b4e5980aa4fbbb74d9be63e3a7, type: 3}
   m_Name: Medium
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: 
+  <Name>k__BackingField: Medium
   <SpawnerConfiguration>k__BackingField:
     <SafetySpawnDistance>k__BackingField: 3
     <MaxAliveAsteroids>k__BackingField: 4
