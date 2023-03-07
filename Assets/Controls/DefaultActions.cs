@@ -63,7 +63,7 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
                     ""id"": ""f4c1f958-05b5-4dec-a44b-9d21351a387a"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": ""Scale(factor=10)"",
+                    ""processors"": ""Scale(factor=60)"",
                     ""groups"": """",
                     ""action"": ""Rotate"",
                     ""isComposite"": true,
@@ -228,8 +228,17 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
                     ""id"": ""17acd017-03d8-4163-801d-5e7dfbd4f0d7"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slowmotion"",
+                    ""type"": ""Value"",
+                    ""id"": ""d503dc41-d364-4ec2-8dcc-4d4ae41386e3"",
+                    ""expectedControlType"": ""Double"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -247,11 +256,33 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""dc593089-1ddc-4bb3-abc4-3b510146b133"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Boost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf000868-6508-4e9f-ab25-0b21cb1bbd97"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Slowmotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92f2f6ea-50ee-4893-a823-0be33d54754d"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Slowmotion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -294,6 +325,7 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
         // Abilities
         m_Abilities = asset.FindActionMap("Abilities", throwIfNotFound: true);
         m_Abilities_Boost = m_Abilities.FindAction("Boost", throwIfNotFound: true);
+        m_Abilities_Slowmotion = m_Abilities.FindAction("Slowmotion", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -464,11 +496,13 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Abilities;
     private List<IAbilitiesActions> m_AbilitiesActionsCallbackInterfaces = new List<IAbilitiesActions>();
     private readonly InputAction m_Abilities_Boost;
+    private readonly InputAction m_Abilities_Slowmotion;
     public struct AbilitiesActions
     {
         private @DefaultActions m_Wrapper;
         public AbilitiesActions(@DefaultActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Boost => m_Wrapper.m_Abilities_Boost;
+        public InputAction @Slowmotion => m_Wrapper.m_Abilities_Slowmotion;
         public InputActionMap Get() { return m_Wrapper.m_Abilities; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -481,6 +515,9 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
             @Boost.started += instance.OnBoost;
             @Boost.performed += instance.OnBoost;
             @Boost.canceled += instance.OnBoost;
+            @Slowmotion.started += instance.OnSlowmotion;
+            @Slowmotion.performed += instance.OnSlowmotion;
+            @Slowmotion.canceled += instance.OnSlowmotion;
         }
 
         private void UnregisterCallbacks(IAbilitiesActions instance)
@@ -488,6 +525,9 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
             @Boost.started -= instance.OnBoost;
             @Boost.performed -= instance.OnBoost;
             @Boost.canceled -= instance.OnBoost;
+            @Slowmotion.started -= instance.OnSlowmotion;
+            @Slowmotion.performed -= instance.OnSlowmotion;
+            @Slowmotion.canceled -= instance.OnSlowmotion;
         }
 
         public void RemoveCallbacks(IAbilitiesActions instance)
@@ -536,5 +576,6 @@ public partial class @DefaultActions: IInputActionCollection2, IDisposable
     public interface IAbilitiesActions
     {
         void OnBoost(InputAction.CallbackContext context);
+        void OnSlowmotion(InputAction.CallbackContext context);
     }
 }

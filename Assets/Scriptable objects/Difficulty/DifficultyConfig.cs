@@ -10,6 +10,7 @@ public class DifficultyConfig : ScriptableObject
 	[field: SerializeField] internal PlayerConfig PlayerConfiguration { get; private set; }
 	[field: SerializeField] internal PlayerArmoryConfig PlayerArmoryConfiguration { get; private set; }
 	[field: SerializeField] internal PlayerMovementConfig PlayerMovementConfiguration { get; private set; }
+	[field: SerializeField] internal PlayerAbilitiesConfig PlayerAbilitiesConfiguration { get; private set; }
 	[field: SerializeField] internal RewardsConfig Rewards { get; private set; }
 	[field: SerializeField] internal AsteroidConfig AsteroidConfiguration { get; private set; }
 	[field: SerializeField] internal SaurcerConfig SaurcerConfiguration { get; private set; }
@@ -52,6 +53,20 @@ public class DifficultyConfig : ScriptableObject
 		internal int LaserMaxCharges { get; private set; }
 		[field: SerializeField] internal float ChargeCooldown { get; private set; }
 		[field: SerializeField] internal float ChargeDuration { get; private set; }
+	}
+
+	[Serializable]
+	internal struct PlayerAbilitiesConfig
+	{
+		[field: SerializeField, Header("Boost")]
+		internal int BoostCharges { get; private set; }
+		[field: SerializeField] internal float ChargeCooldown { get; private set; }
+		[field: SerializeField] internal float BoostForce { get; private set; }
+
+		[field: SerializeField, Header("Slowmotion"), Range(0.01f, 0.99f)]
+		internal float MinSlowmoEffect { get; private set; }
+		[field: SerializeField] internal float SlowmoMaxCharge { get; private set; }
+		[field: SerializeField] internal float SlowmoChargingRatePerSecond { get; private set; }
 	}
 
 	[Serializable]

@@ -41,7 +41,7 @@
                     "id": "f4c1f958-05b5-4dec-a44b-9d21351a387a",
                     "path": "1DAxis",
                     "interactions": "",
-                    "processors": "Scale(factor=10)",
+                    "processors": "Scale(factor=60)",
                     "groups": "",
                     "action": "Rotate",
                     "isComposite": true,
@@ -206,8 +206,17 @@
                     "id": "17acd017-03d8-4163-801d-5e7dfbd4f0d7",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Slowmotion",
+                    "type": "Value",
+                    "id": "d503dc41-d364-4ec2-8dcc-4d4ae41386e3",
+                    "expectedControlType": "Double",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -225,11 +234,33 @@
                 {
                     "name": "",
                     "id": "dc593089-1ddc-4bb3-abc4-3b510146b133",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bf000868-6508-4e9f-ab25-0b21cb1bbd97",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Slowmotion",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92f2f6ea-50ee-4893-a823-0be33d54754d",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Slowmotion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
