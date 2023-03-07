@@ -16,8 +16,8 @@ namespace Assets.Scripts.WorldConducting
 
 		[SerializeField]
 		Player player;
-		[SerializeField]
-		float playerSpawnCooldown;
+		DifficultyConfig.PlayerConfig config => GameManager.Difficulty.PlayerConfiguration;
+
 		float currentSpawnCooldown;
 		bool playerSpawnRequested;
 
@@ -30,7 +30,7 @@ namespace Assets.Scripts.WorldConducting
 			player.HealthDecreased += OnPlayerDecreasedHP;
 
 			playerSpawnRequested = false;
-			currentSpawnCooldown = playerSpawnCooldown;
+			currentSpawnCooldown = config.RespawnCooldown;
 		}
 
 		void Update()
@@ -42,7 +42,7 @@ namespace Assets.Scripts.WorldConducting
 				{
 					player.gameObject.SetActive(true);
 					player.gameObject.transform.position = new Vector2(0, 0);
-					currentSpawnCooldown = playerSpawnCooldown;
+					currentSpawnCooldown = config.RespawnCooldown;
 					playerSpawnRequested = false;
 				}
 			}

@@ -13,8 +13,6 @@ namespace Assets.Scripts.WorldConducting.Spawners
 		Transform avoidable; // TODO: имя поля определенно нужно изменить
 		[SerializeField]
 		T spawnable;
-		[SerializeField]
-		DifficultyConfig config;
 		#endregion
 
 		protected int aliveEntitiesCount;
@@ -23,7 +21,7 @@ namespace Assets.Scripts.WorldConducting.Spawners
 
 		protected bool AliveEntitiesCountQuotaMet => aliveEntitiesCount < MaxAliveEntities;
 		protected T Spawnable => spawnable;
-		protected DifficultyConfig Config => config;
+		protected DifficultyConfig.SpawnerConfig Config => GameManager.Difficulty.SpawnerConfiguration;
 		internal int MaxAliveEntities { get; private protected set; }
 
 		protected void EntitySpawned(T entity)
@@ -45,7 +43,7 @@ namespace Assets.Scripts.WorldConducting.Spawners
 
 			bool CoordinatesIsNotSafe()
 			{ 
-				return Vector2.Distance(coordinates, avoidable.position) <= config.SafetySpawnDistance;
+				return Vector2.Distance(coordinates, avoidable.position) <= Config.SafetySpawnDistance;
 			}
 		}
 		protected T Spawn()

@@ -9,18 +9,11 @@ namespace Assets.Scripts.Movement.Behaviour
 	public class PlayerControllableMovementBehaviour : MonoBehaviour
 	{
 		#region Configuration
-		[SerializeField]
-		float rotationFactor;
-		[SerializeField]
-		float accelerationFactor;
-		[SerializeField]
-		float maxSpeed;
+		DifficultyConfig.PlayerMovementConfig config => GameManager.Difficulty.PlayerMovementConfiguration;
 		#endregion
 
 		MovementInputReader input;
 		DynamicBodyMovementController movementController;
-
-		internal float MaxVelocity => maxSpeed;
 
 		#region Unity callbacks
 		void Awake()
@@ -30,11 +23,11 @@ namespace Assets.Scripts.Movement.Behaviour
 		}
 		private void FixedUpdate()
 		{
-			var rotationOffset = (input.RotationInput * rotationFactor) * Time.deltaTime;
+			var rotationOffset = (input.RotationInput * config.RotationFactor) * Time.deltaTime;
 			movementController.Rotate(rotationOffset);
 
-			var targetAcceleration = accelerationFactor * input.AccelerationInput;
-			movementController.Accelerate(targetAcceleration, ForceMode2D.Force, maxSpeed);
+			var targetAcceleration = config.AccelerationFactor * input.AccelerationInput;
+			movementController.Accelerate(targetAcceleration, ForceMode2D.Force, config.MaxVelocity);
 		}
 		private void OnEnable()
 		{

@@ -1,9 +1,23 @@
-﻿using UnityEngine.SceneManagement;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
 {
 	internal static class GameManager
 	{
+		#region Difficulty
+		const string difficultiesAssetsPath = "Difficulty";
+		internal static DifficultyConfig[] AvailableDifficulties { get; private set; }
+		internal static DifficultyConfig Difficulty { get; set; }
+		#endregion
+
+		static GameManager()
+		{
+			AvailableDifficulties = Resources.LoadAll<DifficultyConfig>(difficultiesAssetsPath);
+			Difficulty = AvailableDifficulties[0];
+		}
+
+		#region Scenes
 		static string InitialScenePath => SceneUtility.GetScenePathByBuildIndex(0);
 		static string GameScenePath => SceneUtility.GetScenePathByBuildIndex(1);
 		static string GameoverScenePath => SceneUtility.GetScenePathByBuildIndex(2);
@@ -20,5 +34,6 @@ namespace Assets.Scripts
 		{
 			SceneManager.LoadScene(GameoverScenePath, LoadSceneMode.Single);
 		}
+		#endregion
 	}
 }

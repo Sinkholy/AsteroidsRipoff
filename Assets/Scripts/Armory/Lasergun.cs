@@ -12,12 +12,7 @@ namespace Assets.Scripts.Armory
 		float ro_beamLength; // ro_ есть симулякр read-only.
 
 		#region Configuration
-		[SerializeField]
-		int maxCharges;
-		[SerializeField]
-		float chargeCooldown;
-		[SerializeField]
-		float chargeDuration;
+		DifficultyConfig.PlayerArmoryConfig config => GameManager.Difficulty.PlayerArmoryConfiguration;
 		#endregion
 
 		int charges;
@@ -33,9 +28,7 @@ namespace Assets.Scripts.Armory
 
 		internal bool ReadyToFire => state != LaserState.Firing && charges > 0;
 		internal int Charges => charges;
-		internal int MaxChargesCount => maxCharges;
 		internal float CurrentChargeCooldown => currentCooldown;
-		internal float ChargeCooldown => chargeCooldown;
 
 		internal void Fire()
 		{
@@ -44,7 +37,7 @@ namespace Assets.Scripts.Armory
 				state = LaserState.Firing;
 				charges--;
 				currentDuration = 0.0f;
-				currentCooldown = chargeCooldown;
+				currentCooldown = config.ChargeCooldown;
 			}
 		}
 
@@ -57,7 +50,7 @@ namespace Assets.Scripts.Armory
 				GenerateCollider();
 			}
 
-			currentCooldown = chargeCooldown;
+			currentCooldown = config.ChargeCooldown;
 
 			void GenerateCollider()
 			{
@@ -73,7 +66,7 @@ namespace Assets.Scripts.Armory
 		void Start()
 		{
 			ro_beamLength = Vector3.Distance(lineRenderer.GetPosition(0), lineRenderer.GetPosition(1));
-			charges = maxCharges;
+			charges = config.LaserMaxCharges;
 		}
 		void Update()
 		{
@@ -92,20 +85,20 @@ namespace Assets.Scripts.Armory
 
 			void Charge()
 			{
-				if (charges < maxCharges)
+				if (charges < config.LaserMaxCharges)
 				{
 					currentCooldown -= Time.deltaTime;
 					if (currentCooldown <= 0.0f)
 					{
 						charges++;
-						currentCooldown = chargeCooldown;
+						currentCooldown = config.ChargeCooldown;
 					}
 				}
 			}
 			void Fire()
 			{
 				currentDuration += Time.deltaTime;
-				if (currentDuration >= chargeDuration)
+				if (currentDuration >= config.ChargeDuration)
 				{
 					state = LaserState.Charging;
 				}

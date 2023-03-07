@@ -13,8 +13,7 @@ namespace Assets.Scripts.Entities
 	internal class Player : MonoBehaviour
 	{
 		#region Configurable
-		[SerializeField]
-		int maxHp;
+		DifficultyConfig.PlayerConfig config => GameManager.Difficulty.PlayerConfiguration;
 		#endregion
 
 		new Rigidbody2D rigidbody;
@@ -32,8 +31,6 @@ namespace Assets.Scripts.Entities
 		internal float RotationAngle => Mathf.DeltaAngle(0.0f, rigidbody.rotation);
 
 		internal int LaserCharges => armoryController.Lasergun.Charges;
-		internal int LaserMaxCharges => armoryController.Lasergun.MaxChargesCount;
-		internal float LaserChargeCooldown => armoryController.Lasergun.ChargeCooldown;
 		internal float LaserCurrentChargeCooldown => armoryController.Lasergun.CurrentChargeCooldown;
 		#endregion
 
@@ -43,7 +40,7 @@ namespace Assets.Scripts.Entities
 			armoryController = GetComponent<PlayerArmoryController>();
 			rigidbody = GetComponent<Rigidbody2D>();
 
-			health = new Health(maxHp, maxHp);
+			health = new Health(config.MaxHp, config.MaxHp);
 			score = new Score();
 		}
 		void Start()

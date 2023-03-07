@@ -14,20 +14,14 @@ namespace Assets.Scripts.Entities
 	{
 		#region Configurable
 		[SerializeField]
-		float minSpeed;
-		[SerializeField]
-		float maxSpeed;
-		[SerializeField]
 		string playerTag;
-		[SerializeField]
-		int maxHp;
+		DifficultyConfig.SaurcerConfig config => GameManager.Difficulty.SaurcerConfiguration;
 		#endregion
 
 		ChaserMovementBehaviour chaserMovement;
 		Health health;
 
-		[field: SerializeField]
-		public int ScoreReward { get; private set; }
+		public int ScoreReward => GameManager.Difficulty.Rewards.SaurcerReward;
 		public bool IsDestroyed { get; }
 
 		public event Action<DestroyingEventArgs> Destroyed = delegate { };
@@ -37,14 +31,14 @@ namespace Assets.Scripts.Entities
 		{
 			chaserMovement = GetComponent<ChaserMovementBehaviour>();
 
-			health = new Health(maxHp, maxHp);
+			health = new Health(config.MaxHp, config.MaxHp);
 		}
 		void Start()
 		{
 			var target = GameObject.FindGameObjectWithTag(playerTag);
 
 			chaserMovement.Target = target;
-			chaserMovement.Speed = UnityEngine.Random.Range(minSpeed, maxSpeed);
+			chaserMovement.Speed = UnityEngine.Random.Range(config.MinSpeed, config.MaxSpeed);
 
 			health.RanOutOfHP += OnRanOutOfHP;
 		}

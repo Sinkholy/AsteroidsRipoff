@@ -14,16 +14,7 @@ namespace Assets.Scripts.Entities
 	internal class Asteroid : MonoBehaviour, IEnemy
 	{
 		#region Configurable
-		[SerializeField]
-		int maxHp;
-		[SerializeField]
-		float minSpeed;
-		[SerializeField]
-		float maxSpeed;
-		[SerializeField]
-		float minDirection;
-		[SerializeField]
-		float maxDirection;
+		DifficultyConfig.AsteroidConfig config => GameManager.Difficulty.AsteroidConfiguration;
 		#endregion
 
 		ConstantMovementBehaviour movementController;
@@ -31,21 +22,20 @@ namespace Assets.Scripts.Entities
 
 		public event Action<DestroyingEventArgs> Destroyed = delegate { };
 
-		[field: SerializeField]
-		public int ScoreReward { get; private set; }
+		public int ScoreReward => GameManager.Difficulty.Rewards.AsteroidReward;
 		public bool IsDestroyed { get; private set; }
 
 		#region Unity callbacks
 		void Awake()
 		{
 			movementController = GetComponent<ConstantMovementBehaviour>();
-			health = new Health(maxHp, maxHp);
+			health = new Health(config.MaxHp, config.MaxHp);
 			health.RanOutOfHP += OnRanOutOfHP;
 		}
 		void Start()
 		{
-			movementController.TargetDirection = UnityRandom.Range(minDirection, maxDirection);
-			movementController.TargetSpeed = UnityRandom.Range(minSpeed, maxSpeed);
+			movementController.TargetDirection = UnityRandom.Range(config.MinDirection, config.MaxDirection);
+			movementController.TargetSpeed = UnityRandom.Range(config.MinSpeed, config.MaxSpeed);
 		}
 		private void OnTriggerEnter2D(Collider2D collision)
 		{

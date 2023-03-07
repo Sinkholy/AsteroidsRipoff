@@ -197,7 +197,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1868267818}
-  playerSpawnCooldown: 3
 --- !u!114 &518816894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +211,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avoidable: {fileID: 1868267825}
   spawnable: {fileID: 8030420993005591246, guid: 6a4371ce9a9539449ba68e7e68cb104e, type: 3}
-  config: {fileID: 11400000, guid: 621c4214b9f5b62499dc62bbedb6b181, type: 2}
 --- !u!114 &518816895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,14 +218,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518816886}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfae0b708deaf04488f82bde37ea0db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   avoidable: {fileID: 1868267825}
   spawnable: {fileID: 550532356102850267, guid: 81bddd5a9bb9c7f45bb9e4e988455628, type: 3}
-  config: {fileID: 11400000, guid: 621c4214b9f5b62499dc62bbedb6b181, type: 2}
 --- !u!114 &518816896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +239,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avoidable: {fileID: 1868267825}
   spawnable: {fileID: -5503645600910077273, guid: d88ea1343c0343541bfb71127af28b0e, type: 3}
-  config: {fileID: 11400000, guid: 621c4214b9f5b62499dc62bbedb6b181, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,9 +374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42dadbcd18fabc4fa61dcce9cc11123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCharges: 2
-  chargeCooldown: 3
-  chargeDuration: 1.5
 --- !u!120 &842504217
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -673,9 +666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c57fdf8e58c8645aa7a87a1918e78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationFactor: 3
-  accelerationFactor: 8.6
-  maxSpeed: 12
 --- !u!114 &1868267818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,7 +678,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a1e3088b0d586448fa28a525dd127d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 3
 --- !u!61 &1868267820
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -749,7 +738,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 6617382546001114728, guid: a46149d17a97d7c4f9bc5de59be4578a, type: 3}
-  projectileSpeed: 8.5
 --- !u!114 &1868267827
 MonoBehaviour:
   m_ObjectHideFlags: 0

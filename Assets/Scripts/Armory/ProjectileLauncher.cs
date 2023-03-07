@@ -11,9 +11,9 @@ namespace Assets.Scripts.Armory
 		#region Configuration
 		[SerializeField]
 		Projectile projectile;
-		[SerializeField]
-		float projectileSpeed;
 		#endregion
+
+		DifficultyConfig.PlayerArmoryConfig config => GameManager.Difficulty.PlayerArmoryConfiguration;
 
 		internal event Action<IEnemy> HitOccured = delegate { };
 
@@ -21,7 +21,7 @@ namespace Assets.Scripts.Armory
 		{
 			var proj = Instantiate(projectile);
 			proj.transform.SetPositionAndRotation(transform.position, transform.rotation);
-			proj.Velocity = projectileSpeed;
+			proj.Velocity = config.ProjectileVelocity;
 
 			proj.EnemyHit += (e) => HitOccured(e);
 		}
