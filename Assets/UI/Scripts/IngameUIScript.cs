@@ -1,17 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 
+using Assets.Scripts;
 using Assets.Scripts.Entities;
-using Assets.Scripts.Movement.Behaviour;
-
-using Unity.VisualScripting;
 
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 using static DefaultActions;
+using static DifficultyConfig;
 
 public class IngameUIScript : MonoBehaviour
 {
@@ -19,44 +16,42 @@ public class IngameUIScript : MonoBehaviour
     [SerializeField]
     Player player;
 
-    Input input;
-
+	#region UI elements to be updated
+	Input input;
     Label laserChargerText;
     ProgressBar laserCooldownBar;
-
     Label rotationText;
-
     Label coordinatesText;
-
     ProgressBar accelerationBar;
-
     ProgressBar velocityBar;
-
     Label livesLeftText;
+	#endregion
 
-    // Start is called before the first frame update
-    void Start()
+	PlayerMovementConfig PlayerMovement => GameManager.Difficulty.PlayerMovementConfiguration;
+	PlayerArmoryConfig PlayerArmory => GameManager.Difficulty.PlayerArmoryConfiguration;
+
+	void Awake()
+	{
+		uiDoc = GetComponent<UIDocument>();
+	}
+	void Start()
     {
         input = new Input();
-        uiDoc = GetComponent<UIDocument>();
+		GetUIElements();
 
-        var root = uiDoc.rootVisualElement;
+		void GetUIElements()
+		{
+			var root = uiDoc.rootVisualElement;
 
-        laserCooldownBar = root.Q<ProgressBar>("LaserCooldownBar");
-        laserChargerText = root.Q<Label>("LaserChargesText");
-
-        rotationText = root.Q<Label>("RotationText");
-
-        coordinatesText = root.Q<Label>("CoordinatesText");
-
-        accelerationBar = root.Q<ProgressBar>("AccelerationBar");
-
-        velocityBar = root.Q<ProgressBar>("VelocityBar");
-
-        livesLeftText = root.Q<Label>("LivesCountText");
+			laserCooldownBar = root.Q<ProgressBar>("LaserCooldownBar");
+			laserChargerText = root.Q<Label>("LaserChargesText");
+			rotationText = root.Q<Label>("RotationText");
+			coordinatesText = root.Q<Label>("CoordinatesText");
+			accelerationBar = root.Q<ProgressBar>("AccelerationBar");
+			velocityBar = root.Q<ProgressBar>("VelocityBar");
+			livesLeftText = root.Q<Label>("LivesCountText");
+		}
 	}
-
-    // Update is called once per frame
     void Update()
     {
         accelerationBar.value = input.AccelerationInput;
@@ -69,12 +64,15 @@ public class IngameUIScript : MonoBehaviour
         void UpdateVelocityUI()
         {
 			velocityBar.value = GetVelocityBarValue();
-			velocityBar.title = $"Velocity: {Math.Round(player.Velocity, 1)}/{player.GetComponent<PlayerControllableMovementBehaviour>().MaxVelocity}";
+
+			var playerVelocity = Math.Round(player.Velocity, 1);
+			var playerMaxVelocity = PlayerMovement.MaxVelocity;
+			velocityBar.title = $"Velocity: {playerVelocity}/{playerMaxVelocity}";
 
 
 			float GetVelocityBarValue()
 			{
-				float maxVelocity = player.GetComponent<PlayerControllableMovementBehaviour>().MaxVelocity;
+				float maxVelocity = PlayerMovement.MaxVelocity;
 				float percent = 100 / maxVelocity;
 
 				return Mathf.Round(player.Velocity * percent);
@@ -82,20 +80,23 @@ public class IngameUIScript : MonoBehaviour
 		}
         void UpdateLaserUI()
         {
-			laserCooldownBar.value = GetLaserCooldown();
-			laserChargerText.text = GetLaserChargesFormated();
-			laserCooldownBar.title = $"Charge: {GetLaserCooldown()}%";
+			var cooldownPercents = GetLaserCooldownPercents();
+			laserCooldownBar.value = cooldownPercents;
+			laserCooldownBar.title = $"Charge: {cooldownPercents}%";
+
+			var charges = player.LaserCharges;
+			var maxCharges = PlayerArmory.LaserMaxCharges;
+			laserChargerText.text = $"{charges}/{maxCharges}";
 
 
-			string GetLaserChargesFormated()
+			float GetLaserCooldownPercents()
 			{
-				return $"{player.LaserCharges}/{player.LaserMaxCharges}";
-			}
-			float GetLaserCooldown()
-			{
-				float percent = 100 / player.LaserChargeCooldown;
+				float percent = 100 / PlayerArmory.ChargeCooldown;
 
-				return Mathf.Round((player.LaserChargeCooldown - player.LaserCurrentChargeCooldown) * percent);
+				var chargeCooldown = PlayerArmory.ChargeCooldown;
+				var currentCooldown = player.LaserCurrentChargeCooldown;
+
+				return Mathf.Round((chargeCooldown - currentCooldown) * percent);
 			}
 		}
     }
