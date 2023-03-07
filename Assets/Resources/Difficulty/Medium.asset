@@ -33,6 +33,13 @@ MonoBehaviour:
     <MaxVelocity>k__BackingField: 12
     <AccelerationFactor>k__BackingField: 8.5
     <RotationFactor>k__BackingField: 3
+  <PlayerAbilitiesConfiguration>k__BackingField:
+    <BoostCharges>k__BackingField: 1
+    <ChargeCooldown>k__BackingField: 3
+    <BoostForce>k__BackingField: 3
+    <MinSlowmoEffect>k__BackingField: 0
+    <SlowmoMaxCharge>k__BackingField: 0
+    <SlowmoChargingRatePerSecond>k__BackingField: 0
   <Rewards>k__BackingField:
     <AsteroidReward>k__BackingField: 10
     <DebriesReward>k__BackingField: 5
