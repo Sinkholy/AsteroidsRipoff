@@ -3,7 +3,7 @@
         <ui:Label text="Game over" display-tooltip-when-elided="true" style="font-size: 26px;" />
         <ui:VisualElement style="flex-direction: row;">
             <ui:Button text="Retry" display-tooltip-when-elided="true" name="RestartButton" style="width: 120px; height: 50px;" />
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="MainMenuButton" />
+            <ui:Button text="Change difficulty" display-tooltip-when-elided="true" name="MainMenuButton" />
         </ui:VisualElement>
         <ui:VisualElement name="ScoreVE" style="flex-direction: row;">
             <ui:Label text="Score: " display-tooltip-when-elided="true" style="font-size: 20px;" />
